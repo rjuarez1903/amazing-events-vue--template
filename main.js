@@ -4,9 +4,13 @@ createApp({
     data() {
         return {
             loading: true,
+            title: document.title,
             events: [],
+            filteredEvents: [],
             categories: [],
-            bgGradient: ''
+            bgGradient: '',
+            inputSearch: '',
+            checked: []
         }
     },
     created() {
@@ -14,20 +18,23 @@ createApp({
             .then(response => response.json())
             .then(json => {
                 this.events = json.events
-                console.log(this.events)
+                this.filteredEvents = this.events
                 this.categories = [... new Set(json.events.map(event => event.category))]
-                console.log(this.categories)
             })
-            .catch(err => console.log(error))
+            .catch(err => console.log(err))
             .finally(() => {
                 this.loading    = false
                 this.bgGradient = 'bg-grey-gradient'
             })
     }, 
     methods: {
-        // crossFilter() {
-        //     let filteredByCategory = events.filter(event => checked.includes(event.category) || checked.length === 0)
-        //     let filteredBySearch   = filteredByCategory.filter(event => event.name.toLowerCase().includes(inputSearch.value.toLowerCase()))
-        //   }
+        crossFilter: function() {
+              console.log('Working')
+              console.log(this.checked)
+              console.log(this.title)
+              let filteredByCategory = this.events.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
+              let filteredBySearch   = filteredByCategory.filter(event => event.name.toLowerCase().includes(this.inputSearch.toLowerCase()))
+              this.filteredEvents = filteredBySearch
+          }
     }
 }).mount('#app')
