@@ -1,0 +1,271 @@
+#app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #212527;
+    color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.bg-grey-gradient {
+    background: rgb(33,37,39);
+    background: linear-gradient(170deg, rgba(33,37,39,1) 50%, rgba(28,28,28,1) 50%);
+}
+
+.card,
+.card-detail {
+    background-color: rgba(44, 48, 49, 0.5);
+}
+
+header > div {
+    background-image: url(../assets/images/nainoa-shizuru-NcdG9mK3PBY-unsplash.jpg);
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    padding: 4rem;    
+}
+
+.border-gradient {
+    border-bottom: 10px solid;
+    border-image-slice: 1;
+    border-width: 5px;
+}
+
+.border-gradient-purple {
+    border-image-source: linear-gradient(to left, #D90268, #743ad5);
+}
+
+.card-detail {
+    border: 1px solid #B6EAFF;
+}
+
+#card-detail-title,
+.card-title {
+    color: #B6EAFF;
+}
+
+small {
+    color: whitesmoke;
+    font-weight: 400;
+    text-transform: uppercase;
+    width: fit-content;
+    padding: 0 1rem;
+}
+
+label {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.80rem;
+}
+
+.search-bar {
+    margin: 0 auto;
+}
+
+.fa-magnifying-glass {
+    font-size: 1rem;
+}
+
+.card {
+    min-height: 34rem;
+}
+
+.card, 
+.card-detail {
+    box-shadow: 10px 10px 30px rgba(0, 0, 0,.5);
+}
+
+#card-img-detail {
+    padding-left: 0;
+    padding-right: 0;
+    object-fit: cover;
+    object-position: center;
+    max-height: 23rem;
+}
+
+.card:hover {
+    border: 1px solid #B6EAFF;
+}
+
+.card-img-top {
+    height: 13rem;
+    object-fit: cover;
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.card-img-top,
+#card-img-detail {
+    border-top-left-radius: 0.375rem;
+    border-top-right-radius: 0.375rem;
+}
+
+.card-detail-footer {
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.price,
+.price-detail {
+    color: whitesmoke;
+    width: 100%;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.rounded-a {
+    width: 45px;
+    height: 45px;
+    font-size: 2rem;
+    background-color: #B6EAFF;
+    color: #212527;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.rounded-a:hover {
+    background-color: #2C3031;
+    color: #B6EAFF;
+    border: 1px solid #B6EAFF;
+}
+
+.card-icon {
+    font-size: 1.5rem;
+}
+
+footer {
+    background-color: #2C3031;
+}
+
+.card-detail-footer p {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+
+
+/*  ---------------
+    CATEGORY COLORS
+    ---------------
+*/
+
+.food-fair {
+    background-color: #D90268;
+}
+
+.museum {
+    background-color: #14213D;
+}
+
+.costume-party {
+    background-color: #1B4332;
+}
+
+.music-concert {
+    background-color: #370617;
+}
+
+.race {
+    background-color: #247BA0; 
+}
+
+.book-exchange {
+    background-color: #50514F;
+}
+
+.cinema {
+    background-color: #743ad5;
+}
+
+.btn-custom {
+    background-color: #B6EAFF;
+    color: #212527;
+    font-weight: 700;
+}
+
+/* 
+    BUTTONS
+*/
+
+.btn-custom:hover {
+    color: #B6EAFF;
+    border: 1px solid #B6EAFF;
+    background-color: #2C3031;
+}
+
+/*  -------
+    CONTACT
+    ------- 
+*/
+
+.contact-form {
+    max-width: 768px;
+}
+
+/*  -----
+    STATS
+    ----- 
+*/
+
+i {
+    font-size: 2rem;
+}
+
+/*  ----------
+    SCROLL BAR
+    ---------- 
+*/
+
+body::-webkit-scrollbar {
+    width: 0.5rem;               
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #212527;        
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #D90268;    
+    border-radius: 20px;       
+    
+  }
+
+/*  -------------
+    MEDIA QUERIES
+    ------------- 
+*/
+
+@media (min-width: 992px) {
+
+    #card-img-detail {
+        border-bottom-left-radius: 0.375rem;
+        border-top-right-radius: 0;
+    }
+
+    .card-detail-footer {
+        border-top-right-radius: 0.375rem;
+    }
+
+}
+
+@media (min-width: 1200px) {
+
+    .price {
+        width: fit-content
+    }
+    
+    .btn {
+        width: fit-content !important;
+    }
+
+    .search-bar {
+        margin-right: 0;
+    }
+    
+}
