@@ -49,30 +49,48 @@
         </div>
     </header>
 
-    <main class="py-5">
-        <!-- <div class="text-center" id="loading">
+    <main class="py-5" :class="bgGradient">
+        <div class="text-center" v-if="loading">
             <div class="spinner-border" role="status">
               <span class="visually-hidden">Loading...</span>
             </div>
-        </div> -->
-        <section class="container" id="section-container">
+        </div>
+        <section class="container" id="section-container" v-else>
             <form class="d-flex flex-wrap align-items-center justify-content-center">
                 <div class="d-flex gap-2 align-items-center justify-content-center flex-wrap my-4" id="checkbox-container">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="${category}" id="${categoryDashed}">
-                        <label class="form-check-label" for="${categoryDashed}">
-                        ${category}
+                    <div class="form-check" v-for="category of categories">
+                        <input class="form-check-input" type="checkbox" :value="category" :id="category.replace(/\s+/g, '-').toLowerCase()">
+                        <label class="form-check-label" :for="category.replace(/\s+/g, '-').toLowerCase()">
+                        {{category}}
                         </label>
                     </div> 
                 </div>
-                <div class="search-bar d-flex ms-auto my-4 ">
+                <div class="search-bar d-flex ms-auto my-4">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                 </div>
             </form>
 
             <div class="cards-container row gy-4 justify-content-center" id="cards-container">
                 
+                <div class="col-xl-3 col-lg-4 col-sm-6" v-for="event of events">
+                    <div class="card rounded" style="width: 100%;">
+                        <img :src="event.image" class="card-img-top" :alt="event.name">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="title-category">
+                                <h5 class="card-title fw-bold text-center"></h5>
+                                <small class="rounded-pill my-1" :class="event.category.replace(/\s+/g, '-').toLowerCase()">{{ event.category }}</small>
+                            </div>
+                            <p>{{ event.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                                <p class="fw-bold my-0 fs-5 price text-center">${{ event.price }}</p>
+                                <a :href="`./details.html/${event._id}`" class="btn btn-custom w-100">Show details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
+            
         </section>
     </main>
 
