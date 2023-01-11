@@ -81,7 +81,7 @@
                                 <th>Revenues</th>
                                 <th>Percentage of attendance</th>
                             </tr>                 
-                            <tr v-for="category of Object.keys(finalStats.upcomingEvents)">
+                            <tr v-for="(category, index) of Object.keys(finalStats.upcomingEvents)" :key="index">
                                 <td>{{category}}</td>
                                 <td>{{finalStats.upcomingEvents[category].revenue}}</td>
                                 <td>{{finalStats.upcomingEvents[category].assistance.toFixed(2)}}%</td>
@@ -94,7 +94,7 @@
                                 <th>Revenues</th>
                                 <th>Percentage of attendance</th>
                             </tr>
-                            <tr v-for="category of Object.keys(finalStats.pastEvents)">
+                            <tr v-for="(category, index) of Object.keys(finalStats.pastEvents)" :key="index">
                                 <td>{{category}}</td>
                                 <td>{{finalStats.pastEvents[category].revenue}}</td>
                                 <td>{{finalStats.pastEvents[category].assistance.toFixed(2)}}%</td>

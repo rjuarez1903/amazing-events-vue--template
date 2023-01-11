@@ -58,7 +58,7 @@
                 <section class="container" id="section-container" v-else>
                     <form class="d-flex flex-wrap align-items-center justify-content-center">
                         <div class="d-flex gap-2 align-items-center justify-content-center flex-wrap my-4" id="checkbox-container">
-                            <div class="form-check" v-for="category of categories">
+                            <div class="form-check" v-for="(category, index) of categories" :key="index">
                                 <input 
                                     class="form-check-input" 
                                     type="checkbox" 
@@ -85,7 +85,7 @@
                         </div>
                     </form>
                     <div class="cards-container row gy-4 justify-content-center" id="cards-container" v-if="filteredEvents.length > 0">
-                        <div class="col-xl-3 col-lg-4 col-sm-6" v-for="event of filteredEvents">
+                        <div class="col-xl-3 col-lg-4 col-sm-6" v-for="event of filteredEvents" :key="event._id">
                             <div class="card rounded" style="width: 100%;">
                                 <img 
                                     :src="event.image" 
