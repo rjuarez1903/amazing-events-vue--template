@@ -14,6 +14,7 @@ createApp({
             pastEvents:     [],
             events:         [],
             filteredEvents: [],
+            filteredByCategory: [],
             categories:     [],
             checked:        [],
         }
@@ -53,22 +54,17 @@ createApp({
                 this.bgGradient = 'bg-grey-gradient'
             })
     }, 
-    methods: {
+    computed: {
         crossFilter: function() {
             if (this.upcoming) {
-                console.log(this.upcomingEvents)
-                let filteredByCategory = this.upcomingEvents.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
-                let filteredBySearch   = filteredByCategory.filter(event => event.name.toLowerCase().includes(this.inputSearch.toLowerCase()))
-                this.filteredEvents    = filteredBySearch
+                filteredByCategory = this.upcomingEvents.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
             } else if (this.past) {
-                let filteredByCategory = this.pastEvents.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
-                let filteredBySearch   = filteredByCategory.filter(event => event.name.toLowerCase().includes(this.inputSearch.toLowerCase()))
-                this.filteredEvents    = filteredBySearch
+                filteredByCategory = this.pastEvents.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
             } else {
-                let filteredByCategory = this.events.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
-                let filteredBySearch   = filteredByCategory.filter(event => event.name.toLowerCase().includes(this.inputSearch.toLowerCase()))
-                this.filteredEvents    = filteredBySearch
+                filteredByCategory = this.events.filter(event => this.checked.includes(event.category) || this.checked.length === 0)
             }
+            const filteredBySearch = filteredByCategory.filter(event => event.name.toLowerCase().includes(this.inputSearch.toLowerCase()))
+            this.filteredEvents    = filteredBySearch
         }
     }
 }).mount('#app')
