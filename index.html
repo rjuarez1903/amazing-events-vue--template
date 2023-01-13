@@ -67,7 +67,6 @@
                                     :value="category" 
                                     :id="category.replace(/\s+/g, '-').toLowerCase()" 
                                     v-model="checked" 
-                                    @change="crossFilter"
                                 >
                                 <label class="form-check-label" 
                                     :for="category.replace(/\s+/g, '-').toLowerCase()"
@@ -82,7 +81,6 @@
                                 type="search" placeholder="Search" 
                                 aria-label="Search" 
                                 v-model="inputSearch" 
-                                @input="crossFilter"
                             >
                         </div>
                     </form>

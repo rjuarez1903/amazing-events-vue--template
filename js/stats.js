@@ -25,18 +25,15 @@ createApp({
                     maxAssistance:  this.getMax(pastEventsStats, 'percentageOfAssistance'),
                     minAssistance:  this.getMin(pastEventsStats, 'percentageOfAssistance') 
                 }
-                console.log(this.finalStats)
             })
             .catch(err => console.log(err))
             .finally(() => {
                 this.loading    = false
-                this.bgGradient = 'bg-grey-gradient'
+                this.animateHeader()
             })
     }, 
     methods: {
         getGeneralStats: function(events) {
-            console.log('Invoked')
-            console.log(events)
             const stats = events.map(event => {
                 return {
                     eventName:              event.name,
@@ -76,8 +73,10 @@ createApp({
             })
             return {eventName: max.eventName, min: max[criteria]}
         },
-        demo() {
-            console.log('Hello World')
+        animateHeader() {
+            const tl = gsap.timeline({defaults: {duration: 1 }})
+            tl.from('.navbar-brand', {x: -50, opacity: 0})
+            tl.from('.navbar-nav', {x: 50, opacity: 0}, "-=1")
         }
     }
 }).mount('#app')
